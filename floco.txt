@@ -1,0 +1,40 @@
+//CSS
+
+.snowflake {
+            position: absolute;
+            top: -10px;
+            color: white;
+            font-size: 1rem;
+            animation: fall linear infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+
+
+
+//JS
+
+function criarFloco() {
+            const floco = document.createElement('div');
+            floco.classList.add('snowflake');
+            floco.innerHTML = '❄';
+            floco.style.left = Math.random() * 100 + 'vw';
+            floco.style.animationDuration = Math.random() * 3 + 2 + 's'; // 2-5 segundos
+            floco.style.fontSize = Math.random() * 10 + 10 + 'px'; // 10-20px
+            document.body.appendChild(floco);
+
+            setTimeout(() => {
+                floco.remove();
+            }, 5000);
+        }
+
+        setInterval(criarFloco, 150);
